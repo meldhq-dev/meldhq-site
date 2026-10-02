@@ -86,3 +86,24 @@ function tickFlow(now){flowFrame=0;if(flowPaused||!flowVisible||document.hidden)
 function syncFlow(){flow.classList.toggle('flow-paused',flowPaused);flowControl.textContent=flowPaused?'Play animation':'Pause animation';flowControl.setAttribute('aria-pressed',String(flowPaused));cancelAnimationFrame(flowFrame);flowFrame=0;flowLast=0;if(!flowPaused&&flowVisible&&!document.hidden)flowFrame=requestAnimationFrame(tickFlow);}
 flowControl.onclick=()=>{flowPaused=!flowPaused;syncFlow();};flowReduced.addEventListener('change',e=>{flowPaused=e.matches;layoutFlow();syncFlow();});document.addEventListener('visibilitychange',syncFlow);
 new ResizeObserver(layoutFlow).observe(flowCanvas);new IntersectionObserver(entries=>{flowVisible=entries[0].isIntersecting;syncFlow();},{threshold:.12}).observe(flow);layoutFlow();syncFlow();
+
+// Public early-access intake. The API accepts only an email; approval is handled in MeldHQ.
+{
+ const form=document.getElementById('early-access-form');
+ const status=document.getElementById('access-status');
+ if(form)form.addEventListener('submit',async event=>{
+  event.preventDefault();
+  const button=form.querySelector('button[type=submit]');
+  const email=form.elements.email.value.trim();
+  status.classList.remove('error');status.textContent='Sending your request…';button.disabled=true;
+  try{
+   const response=await fetch('https://app.meldhq.net/api/early-access',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({email,website:form.elements.website.value})
+   });
+   if(!response.ok){const result=await response.json().catch(()=>({}));throw Error(result.detail||'Please try again in a moment.');}
+   form.reset();status.textContent='Request received. We’ll review it and reach out by email.';
+  }catch(error){status.classList.add('error');status.textContent=error.message||'Could not submit your request. Please try again.';}
+  finally{button.disabled=false;}
+ });
+}
