@@ -34,3 +34,20 @@
 @media(max-width:800px){.journey-head{grid-template-columns:1fr;gap:15px}.journey-grid article{padding:20px}.byoa-visual{grid-template-columns:minmax(0,1fr) 75px minmax(0,1fr);padding:24px}.byoa-system{padding:17px}.byoa-system-main strong{font-size:20px}.byoa-route>span{font-size:8px;letter-spacing:.6px}.byoa-exchange{gap:24px}}
 @media(max-width:600px){.journey{padding:45px 0 55px}.journey-head h2{font-size:38px}.journey-head>p{font-size:15px}.journey-grid{grid-template-columns:1fr}.journey-grid article{min-height:0}.journey-grid article+article{border-left:0;border-top:1px solid #39444c}.journey-grid article:not(:last-child):after{right:50%;top:auto;bottom:-13px;transform:rotate(90deg)}.journey-icon{margin:13px 0 8px}.byoa{padding:55px 0 65px}.byoa-visual{display:flex;flex-direction:column;padding:19px;gap:14px}.byoa-system{width:100%;min-height:248px}.byoa-system-main{margin-top:20px}.byoa-exchange{width:100%;display:flex;justify-content:center;gap:54px;height:46px}.byoa-route{width:35%;height:44px}.byoa-line{width:2px;height:31px;margin:auto}.byoa-line b{right:-9px;top:10px;transform:rotate(90deg)}.finding-route .byoa-line b{left:-9px;top:-16px;transform:rotate(-90deg)}.byoa-line i{display:none}.byoa-route>span{font-size:8px;margin:0 0 5px}.finding-route>span{margin:4px 0 0}.byoa-bottom{display:grid;gap:4px}}
 @media(prefers-reduced-motion:reduce){.byoa-line i{animation:none;left:50%}}
+
+/* Focused story hierarchy: agent collaboration, access, then connected sources. */
+.hero .lead{max-width:790px}
+.scope-section{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(0,1.1fr);gap:48px;align-items:center;padding-top:58px;padding-bottom:74px;border-top:1px solid var(--line)}
+.scope-intro h2{font-size:clamp(34px,3.5vw,48px);font-weight:450;letter-spacing:-1.7px;line-height:1.12;margin:15px 0 18px}
+.scope-intro p{color:#aab4bd;font-size:16px;line-height:1.7;max-width:480px;margin:0}
+.scope-section .scope-principle{margin:0;padding:0;border:0}
+.scope-section .scope-examples{display:grid;grid-template-columns:1fr;gap:10px}
+.scope-section .scope-examples>span{min-height:56px}
+.scope-section .scope-example-label{margin-top:11px}
+.flow-support{display:flex;align-items:baseline;flex-wrap:wrap;gap:7px 14px;padding:22px 3px;color:#c6d2db}
+.flow-support strong{color:#e2e9ee;font-size:13px}
+.flow-support span{font-size:13px}
+.flow-support small{flex-basis:100%;color:#82909a;font-size:11px}
+.flow-sources{align-content:center}
+.flow-source{min-height:90px}
+@media(max-width:760px){.scope-section{grid-template-columns:1fr;gap:26px;padding-top:45px;padding-bottom:56px}.scope-intro p{font-size:15px}.scope-section .scope-examples>span{min-height:50px}.flow-source{min-height:0}}
