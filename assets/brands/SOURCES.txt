@@ -1,1 +1,3 @@
 Brand icons: Simple Icons v11.15.0, https://github.com/simple-icons/simple-icons/tree/11.15.0/icons. See LICENSE.txt. Brand names and logos belong to their respective owners; use does not imply endorsement.
+Codex symbol: https://asvg.app/assets/svg/codex/codex-symbol-color.svg (OpenAI trademark; integration reference only).
+Cursor app icon: /Applications/Cursor.app/Contents/Resources/Cursor.icns, from the installed official Cursor app (Cursor trademark; integration reference only).
