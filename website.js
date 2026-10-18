@@ -34,6 +34,7 @@
       });
     });
     document.getElementById('next-stage').addEventListener('click', () => showStage(current + 1));
+    document.querySelectorAll('[data-show-step]').forEach(link => link.addEventListener('click', () => showStage(Number(link.dataset.showStep))));
   }
   document.querySelectorAll('[data-event]').forEach(el => el.addEventListener('click', () => track(el.dataset.event, {placement: el.dataset.placement || 'page'})));
   document.querySelectorAll('video').forEach(video => {
