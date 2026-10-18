@@ -4,17 +4,17 @@
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const panel = document.getElementById('workflow-panel');
   const tabs = [...document.querySelectorAll('[data-step]')];
-  const arrow = '<svg class="icon" aria-hidden="true"><use href="#arrow"/></svg>';
+  const arrow = '<svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow"/></svg>';
   const stages = panel ? [
     {html: panel.innerHTML, caption: 'Evidence determines the fix.'},
-    {html: `<div class="panel-eyebrow"><span class="status-dot"></span> FIX PREPARED BY MELD</div><h3>Release the slot.<br>Stop the failures.</h3><p>A targeted change makes sure failed requests don’t exhaust capacity.</p><pre class="code-panel" aria-label="Illustrative code diff: release capacity in a finally block">if capacity.acquire(timeout=0.2):
+    {html: `<div class="panel-eyebrow"><span class="status-dot"></span> FIX PREPARED BY MELD</div><h3>Release the slot.<br> Stop the failures.</h3><p>A targeted change makes sure failed requests don’t exhaust capacity.</p><pre class="code-panel" aria-label="Illustrative code diff: release capacity in a finally block">if capacity.acquire(timeout=0.2):
     try:
         return handle_checkout()
     except CheckoutError:
         return service_unavailable()
 <span class="added">+   finally:
 +       capacity.release()</span></pre><div class="fix-scope"><span>Deployment scope<strong>Checkout only</strong></span><span>Execution<strong>Your permissions &amp; approvals</strong></span></div>`, caption: 'A targeted fix. Your deployment policy.'},
-    {html: `<div class="panel-eyebrow"><span class="status-dot"></span> RECOVERY VERIFIED</div><h3>Healthy requests.<br>Not just a green deploy.</h3><p>Meld checks fresh traffic against the service’s recovery policy.</p><div class="checks"><div><strong>0.3%</strong><small>Request errors<br>Target &lt;1%</small></div><div><strong>240 ms</strong><small>p95 latency<br>Target &lt;500 ms</small></div><div><strong>324</strong><small>Fresh requests<br>Two-minute window</small></div></div><div class="verified-banner"><svg class="icon" aria-hidden="true"><use href="#check"/></svg> All example checks pass.</div><p class="recovery-caveat">Without sufficient evidence, recovery stays unverified.</p>`, caption: 'Fresh evidence, not an assumption.'}
+    {html: `<div class="panel-eyebrow"><span class="status-dot"></span> RECOVERY VERIFIED</div><h3>Healthy requests.<br> Not just a green deploy.</h3><p>Meld checks fresh traffic against the service’s recovery policy.</p><div class="checks"><div><strong>0.3%</strong><small>Request errors<br> Target &lt;1%</small></div><div><strong>240 ms</strong><small>p95 latency<br> Target &lt;500 ms</small></div><div><strong>324</strong><small>Fresh requests<br> Two-minute window</small></div></div><div class="verified-banner"><svg class="icon" aria-hidden="true" focusable="false"><use href="#check"/></svg> All example checks pass.</div><p class="recovery-caveat">Without sufficient evidence, recovery stays unverified.</p>`, caption: 'Fresh evidence, not an assumption.'}
   ] : [];
   let current = 0;
   const visited = new Set([0]);
@@ -112,7 +112,7 @@
     document.getElementById('diagnosis-copy').textContent=stage>=2?'Shared evidence pinpoints the error path. A leaked slot is exhausting capacity.':'Capacity is exhausted. Testing two leads: a traffic spike or leaked slots.';
     document.getElementById('chart-status').textContent=stage===3?'Recovery verified':'Recovery in focus';
     preview.querySelectorAll('.recovery-check>span:last-child').forEach((label,i)=>label.textContent=stage===3?(i===0?'Verified':'Healthy'):'Pending');
-    toggle.textContent=playing?'Pause Ⅱ':stage===3?'Replay ↻':'Play ▷';
+    toggle.textContent=playing?'Pause':stage===3?'Replay':'Play';
     toggle.setAttribute('aria-label',playing?'Pause illustrative incident animation':stage===3?'Replay illustrative incident animation':'Resume illustrative incident animation');
   }
   function schedule(){clearTimeout(timer);if(!playing||!inView||document.hidden)return;timer=setTimeout(()=>{stage++;if(stage>=3){stage=3;playing=false;}render();schedule();},stage===2?4200:3000);}
