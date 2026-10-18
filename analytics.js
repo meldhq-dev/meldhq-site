@@ -33,7 +33,7 @@
     const properties = {};
     Object.entries(event.properties || {}).forEach(([key, value]) => { if (allowedProperties.has(key)) properties[key] = value; });
     const source = referrer();
-    event.properties = {...properties, ...campaign(), $current_url: location.origin + location.pathname, $pathname: location.pathname, $host: location.host, $title: document.title, $referrer: source.url, $referring_domain: source.domain, $process_person_profile: false};
+    event.properties = {...properties, token: config.token, ...campaign(), $current_url: location.origin + location.pathname, $pathname: location.pathname, $host: location.host, $title: document.title, $referrer: source.url, $referring_domain: source.domain, $process_person_profile: false};
     return event;
   }
   function track(event, properties = {}) {

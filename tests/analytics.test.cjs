@@ -37,6 +37,7 @@ test('consent loads the SDK and records one pageview with attribution and no sen
   const h=harness(); h.choose('allowed'); assert.equal(h.scripts.length,1); h.load();
   assert.equal(h.events.length,1); assert.equal(h.events[0].event,'$pageview');
   const p=h.events[0].properties;
+  assert.equal(p.token,'public-test-token');
   assert.equal(p.utm_source,'linkedin'); assert.equal(p.$current_url,'https://meldhq.net/'); assert.equal(p.$referrer,'https://example.com/');
   assert.ok(!JSON.stringify(p).includes('secret'));
   assert.equal(h.options[0].autocapture,false); assert.equal(h.options[0].person_profiles,'never'); assert.equal(h.options[0].disable_session_recording,true);
