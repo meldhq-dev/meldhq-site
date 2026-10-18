@@ -1,0 +1,6 @@
+DM Sans, variable Latin webfont, sourced from Google Fonts (fonts.gstatic.com), SIL Open Font License 1.1. License: DM-Sans-OFL.txt.
+Instrument Serif Italic, Latin webfont, sourced from Google Fonts (fonts.gstatic.com), SIL Open Font License 1.1. License: Instrument-Serif-OFL.txt.
+
+Official source repositories:
+https://github.com/google/fonts/tree/main/ofl/dmsans
+https://github.com/google/fonts/tree/main/ofl/instrumentserif
