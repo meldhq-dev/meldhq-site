@@ -6,14 +6,14 @@
   <meta name="description" content="AI-native incident response built to investigate failures, deploy approved fixes and verify recovery. Engineers and their agents work in one shared investigation.">
   <meta name="theme-color" content="#101214"><link rel="canonical" href="https://meldhq.net/">
   <meta property="og:title" content="MeldHQ — From first alert to verified recovery."><meta property="og:description" content="AI incident response that brings your systems, engineers and their agents into one investigation."><meta property="og:type" content="website"><meta property="og:url" content="https://meldhq.net/">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="website.css?v=recovery-6">
-  <script src="analytics-config.js?v=1" defer></script><script src="analytics.js?v=2" defer></script><script src="website.js?v=5" defer></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="website.css?v=recovery-7">
+  <script src="analytics-config.js?v=1" defer></script><script src="analytics.js?v=2" defer></script><script src="website.js?v=6" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav wrap">
   <a class="brand" href="/" aria-label="MeldHQ home"><img src="meldhq-mark.svg" alt="" width="35" height="33"><span>Meld<span class="hq">HQ</span></span></a>
-  <nav aria-label="Main navigation"><a href="#workflow">How it works</a><a href="#workflow" data-show-step="1">Multiplayer AI</a><a href="#access">Access</a><a href="https://app.meldhq.net/" data-event="app_opened" data-placement="nav">Log in</a><a class="button small booking" href="https://calendar.app.google/288JiRyM8VTCZps88" data-event="demo_booking_clicked" data-placement="nav">Book a demo <span aria-hidden="true">↗</span></a></nav>
+  <nav aria-label="Main navigation"><a href="#workflow">How it works</a><a href="#team">Multiplayer AI</a><a href="#access">Access</a><a href="https://app.meldhq.net/" data-event="app_opened" data-placement="nav">Log in</a><a class="button small booking" href="https://calendar.app.google/288JiRyM8VTCZps88" data-event="demo_booking_clicked" data-placement="nav">Book a demo <span aria-hidden="true">↗</span></a></nav>
 </header>
 <main id="main">
   <section class="hero wrap">
@@ -39,23 +39,28 @@
   </section>
   <section class="workflow wrap" id="workflow" aria-labelledby="workflow-heading" data-section="workflow">
     <div class="section-heading midnight-heading"><h2 id="workflow-heading">2 a.m.<br>Production’s down.<br><span>Meld’s on it.</span></h2></div>
-    <div class="workflow-shell">
-      <div class="workflow-steps" role="tablist" aria-label="Investigation stages" aria-orientation="vertical">
-        <button role="tab" id="step-0" aria-controls="workflow-panel" aria-selected="true" data-step="0"><span class="step-number">01</span><span><strong>Meld investigates</strong><small>Test causes. Follow the evidence.</small></span><span class="step-arrow" aria-hidden="true">↗</span></button>
-        <button role="tab" id="step-1" aria-controls="workflow-panel" aria-selected="false" tabindex="-1" data-step="1"><span class="step-number">02</span><span><strong>The team steers</strong><small>New evidence changes the diagnosis.</small></span><span class="step-arrow" aria-hidden="true">↗</span></button>
-        <button role="tab" id="step-2" aria-controls="workflow-panel" aria-selected="false" tabindex="-1" data-step="2"><span class="step-number">03</span><span><strong>Fix and deploy</strong><small>Review the change. Approve deployment.</small></span><span class="step-arrow" aria-hidden="true">↗</span></button>
-        <button role="tab" id="step-3" aria-controls="workflow-panel" aria-selected="false" tabindex="-1" data-step="3"><span class="step-number">04</span><span><strong>Verify recovery</strong><small>Check the service after the change.</small></span><span class="step-arrow" aria-hidden="true">↗</span></button>
-        <button role="tab" id="step-4" aria-controls="workflow-panel" aria-selected="false" tabindex="-1" data-step="4"><span class="step-number">05</span><span><strong>Keep the learning</strong><small>A record the team can build on.</small></span><span class="step-arrow" aria-hidden="true">↗</span></button>
+    <div class="workflow-shell autonomous-workflow">
+      <div class="workflow-steps" role="tablist" aria-label="Meld resolution stages" aria-orientation="horizontal">
+        <button role="tab" id="step-0" aria-controls="workflow-panel" aria-selected="false" tabindex="-1" data-step="0"><span class="step-number">01</span><span><strong>Diagnosis</strong><small>Find the cause.</small></span></button>
+        <button role="tab" id="step-1" aria-controls="workflow-panel" aria-selected="true" data-step="1"><span class="step-number">02</span><span><strong>Fix</strong><small>Make the change.</small></span></button>
+        <button role="tab" id="step-2" aria-controls="workflow-panel" aria-selected="false" tabindex="-1" data-step="2"><span class="step-number">03</span><span><strong>Recovery</strong><small>Verify fresh traffic.</small></span></button>
       </div>
       <div class="workflow-example">
         <div class="example-bar"><span><img src="meldhq-mark.svg" alt="" width="20" height="20"> checkout <span class="dim">/ production</span></span><span class="example-label">ILLUSTRATIVE WORKFLOW</span></div>
-        <div id="workflow-panel" role="tabpanel" aria-labelledby="step-0" tabindex="0">
-          <div class="panel-heading"><span class="status investigating">Investigating</span><span class="sample-time">Incident declared</span></div>
-          <h3>Checkout requests are failing.</h3>
-          <div class="finding"><img src="meldhq-mark.svg" alt="" width="24" height="24"><div><strong>Meld</strong><p>503s follow a wait for capacity. Checking for exhausted slots.</p></div></div>
-          <div class="evidence-list"><div><span>Database unavailable</span><span class="muted">Not supported by these checks</span></div><div><span>Checkout capacity exhausted</span><span class="accent">Investigating</span></div></div>
+        <div id="workflow-panel" role="tabpanel" aria-labelledby="step-1" tabindex="0">
+          <div class="panel-heading"><span class="status">Fix prepared by Meld</span><span class="sample-time">checkout / app.py</span></div>
+          <h3>Release the slot. Stop the failures.</h3>
+          <p class="panel-summary">Meld adds the missing cleanup so failed requests don’t exhaust capacity.</p>
+          <pre class="example-code fix-code" aria-label="Illustrative code diff: release capacity in a finally block">if capacity.acquire(timeout=0.2):
+    try:
+        return handle_checkout()
+    except CheckoutError:
+        return service_unavailable()
+<span class="added">+   finally:
++       capacity.release()</span></pre>
+          <div class="fix-scope"><span>Deployment scope <strong>Checkout only</strong></span><span>Execution <strong>Within configured permissions &amp; approvals</strong></span></div>
         </div>
-        <div class="example-footer"><span id="stage-caption">Logs → hypotheses → next check.</span><button id="next-stage" aria-label="Next investigation stage">Next <span aria-hidden="true">→</span></button></div>
+        <div class="example-footer"><span id="stage-caption">A targeted fix, within your deployment policy.</span><button id="next-stage" aria-label="Next resolution stage">Next <span aria-hidden="true">→</span></button></div>
       </div>
     </div>
     <p class="sample-note">Illustrative product workflow and example data · deployment flow shows the product direction.</p>
