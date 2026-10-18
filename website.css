@@ -58,3 +58,29 @@
   @keyframes meld-hero-enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
   @keyframes meld-preview-enter{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
 }
+
+/* The desktop hero tells one continuous story instead of centering copy beside a tall card. */
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;z-index:-1;inset:-40px 0;pointer-events:none;background:radial-gradient(ellipse 48% 48% at 50% 76%,#5b99751b,transparent 76%),radial-gradient(ellipse 38% 36% at 82% 30%,#c3ecc80b,transparent 78%)}
+@media(min-width:1101px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:38px;align-items:start;text-align:center;padding-top:42px;padding-bottom:46px}
+  .hero-copy{width:min(100%,850px);margin-inline:auto}
+  .hero h1{font-size:clamp(62px,5vw,78px);max-width:850px;margin-inline:auto}
+  .hero .lead{max-width:730px;margin-inline:auto}
+  .hero-actions{justify-content:center}
+  .incident-preview{width:100%;text-align:left}
+  .preview-title{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:26px 30px 10px}
+  .preview-title h2{font-size:26px;margin:0}
+  .preview-events{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:18px 20px 26px}
+  .preview-events li{display:block;min-height:190px;padding:17px 16px 14px}
+  .preview-events li+li{margin-top:0}
+  .preview-events .event-icon{margin-bottom:18px}
+  .preview-events h3{font-size:16px}
+  .preview-events p{font-size:14px}
+  .preview-events .event-check{position:absolute;top:23px;right:17px}
+  .preview-events::before,.preview-events::after{left:53px;right:53px;top:52px;bottom:auto;width:auto;height:2px}
+  .preview-events::after{transform-origin:left;transform:scaleX(var(--rail-progress,0))}
+  .preview-controls{padding:12px 30px}
+  .incident-preview figcaption{padding:0 30px 17px}
+}
+@media(min-width:851px) and (max-width:1100px){.hero{align-items:start;padding-top:38px;padding-bottom:48px}.hero-copy{padding-top:18px}}
