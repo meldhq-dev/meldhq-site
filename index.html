@@ -6,8 +6,8 @@
   <meta name="description" content="AI-native incident response built to investigate failures, deploy approved fixes and verify recovery. Engineers and their agents work in one shared investigation.">
   <meta name="theme-color" content="#101214"><link rel="canonical" href="https://meldhq.net/">
   <meta property="og:title" content="MeldHQ — From first alert to verified recovery."><meta property="og:description" content="AI incident response that brings your systems, engineers and their agents into one investigation."><meta property="og:type" content="website"><meta property="og:url" content="https://meldhq.net/">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="website.css?v=recovery-5">
-  <script src="analytics-config.js?v=1" defer></script><script src="analytics.js?v=2" defer></script><script src="website.js?v=4" defer></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="website.css?v=recovery-6">
+  <script src="analytics-config.js?v=1" defer></script><script src="analytics.js?v=2" defer></script><script src="website.js?v=5" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -17,11 +17,25 @@
 </header>
 <main id="main">
   <section class="hero wrap">
+    <div class="hero-copy">
     <p class="eyebrow"><span class="signal-dot"></span> AI-NATIVE INCIDENT RESPONSE</p>
     <h1>From first alert<br>to <span>verified recovery.</span></h1>
     <p class="lead">Meld investigates, fixes and verifies recovery. Engineers and their own AI agents can join and steer the same investigation.</p>
     <div class="hero-actions"><a class="button booking" href="https://calendar.app.google/288JiRyM8VTCZps88" data-event="demo_booking_clicked" data-placement="hero">See Meld handle an incident <span aria-hidden="true">↗</span></a><a class="text-link" href="#workflow" data-event="workflow_opened" data-placement="hero">See how it works <span aria-hidden="true">↓</span></a></div>
     <p class="hero-note">20-minute demo · For on-call, SRE and platform teams</p>
+    </div>
+    <figure class="incident-preview" aria-label="Illustrative incident investigation" data-hero-stage="3">
+      <div class="preview-top"><span><img src="meldhq-mark.svg" width="22" height="22" alt=""> Meld <span class="preview-room">/ checkout</span></span><span class="preview-label">ILLUSTRATIVE WORKFLOW</span></div>
+      <div class="preview-title"><span class="preview-kicker">ONE SHARED INVESTIGATION</span><h2>Every finding moves it forward.</h2></div>
+      <ol class="preview-events">
+        <li data-scene="0"><div class="event-icon alert-icon"><img src="assets/brands/datadog.svg" width="22" height="22" alt="Datadog"></div><div><span class="event-meta">ALERT RECEIVED</span><h3>Checkout errors rising</h3><p>Requests are failing. Meld starts investigating.</p></div><span class="event-check" aria-hidden="true">✓</span></li>
+        <li data-scene="1"><div class="event-icon"><img src="meldhq-mark.svg" width="22" height="22" alt="Meld"></div><div><span class="event-meta">MELD INVESTIGATES</span><h3>Capacity exhausted</h3><p>Testing two leads: traffic spike or leaked slots.</p></div><span class="event-check" aria-hidden="true">✓</span></li>
+        <li data-scene="2"><div class="event-icon"><img src="assets/brands/codex.svg" width="22" height="22" alt="Codex"></div><div><span class="event-meta">ENGINEER + CODEX SHARE EVIDENCE</span><h3>“The error path never releases its slot.”</h3><p class="evidence-pivot"><span aria-hidden="true">↳</span> Meld updates the diagnosis: slot leak.</p></div><span class="event-check" aria-hidden="true">✓</span></li>
+        <li data-scene="3"><div class="event-icon recovery-icon" aria-hidden="true">✓</div><div><span class="event-meta">FIX APPROVED · RECOVERY CHECKED</span><h3>Checkout is healthy again</h3><p>Release the slot. Verify fresh requests.</p></div><span class="event-check" aria-hidden="true">✓</span></li>
+      </ol>
+      <div class="preview-controls" hidden><span class="preview-progress" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="preview-position">4 / 4</span><button type="button" id="preview-toggle">Replay ↻</button><button type="button" id="preview-next" aria-label="Next animation step">Next →</button></div>
+      <figcaption>Example scenario · Deployment illustrates product direction.</figcaption>
+    </figure>
   </section>
   <section class="workflow wrap" id="workflow" aria-labelledby="workflow-heading" data-section="workflow">
     <div class="section-heading midnight-heading"><h2 id="workflow-heading">2 a.m.<br>Production’s down.<br><span>Meld’s on it.</span></h2></div>

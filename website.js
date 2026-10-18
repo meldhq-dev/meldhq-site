@@ -86,3 +86,46 @@
     });
   }
 })();
+
+// Play once in view. Keep all evidence readable; never loop or move the layout.
+(() => {
+  const preview = document.querySelector('.incident-preview');
+  if (!preview) return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const rows = [...preview.querySelectorAll('[data-scene]')];
+  const bars = [...preview.querySelectorAll('.preview-progress i')];
+  const toggle = document.getElementById('preview-toggle');
+  const next = document.getElementById('preview-next');
+  let stage = 3, timer, playing = false, started = false, inView = false;
+  function render() {
+    preview.dataset.heroStage = stage;
+    rows.forEach((row, index) => { row.classList.toggle('is-current', index === stage); row.classList.toggle('is-complete', index < stage); });
+    bars.forEach((bar, index) => bar.classList.toggle('is-filled', index <= stage));
+    document.getElementById('preview-position').textContent = `${stage + 1} / 4`;
+    toggle.textContent = playing ? 'Pause Ⅱ' : stage === 3 ? 'Replay ↻' : 'Play ▷';
+    next.disabled = stage === 3;
+    next.style.opacity = stage === 3 ? '.4' : '1';
+  }
+  function schedule() {
+    clearTimeout(timer);
+    if (!playing || !inView || document.hidden) return;
+    timer = setTimeout(() => { stage++; if (stage === 3) playing = false; render(); schedule(); }, stage === 2 ? 5500 : 4000);
+  }
+  function start() { started = true; stage = 0; playing = true; render(); schedule(); }
+  toggle.addEventListener('click', () => {
+    if (stage === 3) { start(); return; }
+    playing = !playing; render(); schedule();
+  });
+  next.addEventListener('click', () => { playing = false; stage = Math.min(stage + 1, 3); render(); schedule(); });
+  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) { clearTimeout(timer); playing = false; stage = 3; render(); } });
+  document.addEventListener('visibilitychange', schedule);
+  preview.querySelector('.preview-controls').hidden = false;
+  render();
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      if (inView && !started && !reducedMotion.matches) start(); else schedule();
+    }, {threshold: .45});
+    observer.observe(preview);
+  } else { inView = true; }
+})();
