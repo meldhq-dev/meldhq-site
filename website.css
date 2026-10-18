@@ -38,3 +38,23 @@
 .preview-controls button{min-height:44px;padding:10px 5px}
 .fix-scope>span{font-size:12px}
 @media(max-width:420px){.preview-label{display:none}.preview-events p{font-size:13px}.event-meta{font-size:11px}.autonomous-workflow .fix-code{font-size:12px}}
+
+/* The incident thread carries evidence forward; a teammate's finding changes Meld's diagnosis. */
+.preview-events{position:relative}
+.preview-events::before,.preview-events::after{content:"";position:absolute;z-index:0;left:42px;top:44px;bottom:44px;width:2px;border-radius:2px;pointer-events:none}
+.preview-events::before{background:#405047}
+.preview-events::after{background:linear-gradient(#8fbea0,#b8dfc6);transform-origin:top;transform:scaleY(var(--rail-progress,0));transition:transform 700ms cubic-bezier(.22,1,.36,1)}
+.incident-preview[data-hero-stage="0"]{--rail-progress:.04}
+.incident-preview[data-hero-stage="1"]{--rail-progress:.34}
+.incident-preview[data-hero-stage="2"]{--rail-progress:.68}
+.incident-preview[data-hero-stage="3"]{--rail-progress:1}
+.preview-events li.has-pivot{border-color:#668f73;background:#b8dfc610}
+@media(prefers-reduced-motion:no-preference){.preview-events li.has-pivot .event-icon{animation:meld-pivot 850ms cubic-bezier(.22,1,.36,1) both}@keyframes meld-pivot{0%{box-shadow:0 0 0 0 #b8dfc600}40%{box-shadow:0 0 0 7px #b8dfc648}100%{box-shadow:0 0 0 0 #b8dfc600}}}
+@media(max-width:420px){.preview-events::before,.preview-events::after{left:30px}}
+
+@media(prefers-reduced-motion:no-preference){
+  .hero-copy{animation:meld-hero-enter 650ms cubic-bezier(.22,1,.36,1) both}
+  .incident-preview{animation:meld-preview-enter 850ms cubic-bezier(.22,1,.36,1) 120ms both}
+  @keyframes meld-hero-enter{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @keyframes meld-preview-enter{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+}

@@ -6,8 +6,8 @@
   <meta name="description" content="MeldHQ brings on-call, AI-led incident resolution and postmortems into one platform. Meld diagnoses and fixes outages; engineers and their agents join when needed.">
   <meta name="theme-color" content="#101214"><link rel="canonical" href="https://meldhq.net/">
   <meta property="og:title" content="MeldHQ — From first alert to verified recovery."><meta property="og:description" content="On-call, AI-led resolution and postmortems in one incident-response platform."><meta property="og:type" content="website"><meta property="og:url" content="https://meldhq.net/">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="website.css?v=recovery-8">
-  <script src="analytics-config.js?v=1" defer></script><script src="analytics.js?v=2" defer></script><script src="website.js?v=6" defer></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="website.css?v=recovery-9">
+  <script src="analytics-config.js?v=1" defer></script><script src="analytics.js?v=2" defer></script><script src="website.js?v=7" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -29,7 +29,7 @@
       <div class="preview-title"><span class="preview-kicker">ONE SHARED INVESTIGATION</span><h2>Every finding moves it forward.</h2></div>
       <ol class="preview-events">
         <li data-scene="0"><div class="event-icon alert-icon"><img src="assets/brands/datadog.svg" width="22" height="22" alt="Datadog"></div><div><span class="event-meta">ALERT RECEIVED</span><h3>Checkout errors rising</h3><p>Requests are failing. Meld starts investigating.</p></div><span class="event-check" aria-hidden="true">✓</span></li>
-        <li data-scene="1"><div class="event-icon"><img src="meldhq-mark.svg" width="22" height="22" alt="Meld"></div><div><span class="event-meta">MELD INVESTIGATES</span><h3>Capacity exhausted</h3><p>Testing two leads: traffic spike or leaked slots.</p></div><span class="event-check" aria-hidden="true">✓</span></li>
+        <li data-scene="1"><div class="event-icon"><img src="meldhq-mark.svg" width="22" height="22" alt="Meld"></div><div><span class="event-meta">MELD INVESTIGATES</span><h3 data-diagnosis-title>Capacity exhausted</h3><p data-diagnosis>Testing two leads: traffic spike or leaked slots.</p></div><span class="event-check" aria-hidden="true">✓</span></li>
         <li data-scene="2"><div class="event-icon"><img src="assets/brands/codex.svg" width="22" height="22" alt="Codex"></div><div><span class="event-meta">ENGINEER + CODEX SHARE EVIDENCE</span><h3>“The error path never releases its slot.”</h3><p class="evidence-pivot"><span aria-hidden="true">↳</span> Meld updates the diagnosis: slot leak.</p></div><span class="event-check" aria-hidden="true">✓</span></li>
         <li data-scene="3"><div class="event-icon recovery-icon" aria-hidden="true">✓</div><div><span class="event-meta">FIX APPROVED · RECOVERY CHECKED</span><h3>Checkout is healthy again</h3><p>Release the slot. Verify fresh requests.</p></div><span class="event-check" aria-hidden="true">✓</span></li>
       </ol>

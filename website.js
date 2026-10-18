@@ -92,12 +92,17 @@
   if (!preview) return;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const rows = [...preview.querySelectorAll('[data-scene]')];
+  const diagnosisTitle = preview.querySelector('[data-diagnosis-title]');
+  const diagnosis = preview.querySelector('[data-diagnosis]');
   const bars = [...preview.querySelectorAll('.preview-progress i')];
   const toggle = document.getElementById('preview-toggle');
   const next = document.getElementById('preview-next');
   let stage = 3, timer, playing = false, started = false, inView = false;
   function render() {
     preview.dataset.heroStage = stage;
+    diagnosisTitle.textContent = stage >= 2 ? 'Slot leak identified' : 'Capacity exhausted';
+    diagnosis.textContent = stage >= 2 ? 'Shared evidence pinpoints the error path.' : 'Testing two leads: traffic spike or leaked slots.';
+    rows[1].classList.toggle('has-pivot', stage === 2 && !reducedMotion.matches);
     rows.forEach((row, index) => { row.classList.toggle('is-current', index === stage); row.classList.toggle('is-complete', index < stage); });
     bars.forEach((bar, index) => bar.classList.toggle('is-filled', index <= stage));
     document.getElementById('preview-position').textContent = `${stage + 1} / 4`;
