@@ -3,3 +3,5 @@ Codex symbol: https://asvg.app/assets/svg/codex/codex-symbol-color.svg (OpenAI t
 Cursor app icon: /Applications/Cursor.app/Contents/Resources/Cursor.icns, from the installed official Cursor app (Cursor trademark; integration reference only).
 
 Claude symbol: exact orange symbol path from the official Claude homepage navigation wordmark, https://claude.com/ (retrieved 2026-10-18). Authored fill #D97757 is preserved. Cropped from the combined wordmark viewBox to the symbol’s original 0 0 125 125 coordinates; path unchanged. Claude and its mark are Anthropic trademarks, used here only to identify the referenced agent.
+
+DexCare logo (assets/partners/dexcare.webp): the light (white text) wordmark from the official DexCare homepage footer, https://dexcare.com/wp-content/uploads/2026/01/dexcare-logo-light-m.webp (retrieved 2026-11-10), unmodified. DexCare is a MeldHQ design partner; the name and logo belong to DexCare.
