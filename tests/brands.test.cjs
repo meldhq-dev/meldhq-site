@@ -38,3 +38,9 @@ test('Decorative UI controls avoid font-dependent glyphs and SVG announcements',
   assert.doesNotMatch(html + script, /<svg class="icon">/);
   assert.match(script, /toggle.textContent=playing\?'Pause':stage===3\?'Replay':'Play'/);
 });
+
+test('Design partner DexCare shows its official logo with accessible text', () => {
+  assert.match(html, /<div class="partners wrap"[^>]*><p>OUR DESIGN PARTNERS<\/p>/);
+  assert.match(html, /<img src="assets\/partners\/dexcare\.webp" alt="DexCare"/);
+  assert.ok(fs.statSync('assets/partners/dexcare.webp').size > 0);
+});
