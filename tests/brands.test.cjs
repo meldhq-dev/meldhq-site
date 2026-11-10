@@ -41,6 +41,6 @@ test('Decorative UI controls avoid font-dependent glyphs and SVG announcements',
 
 test('Design partner DexCare shows its official logo with accessible text', () => {
   assert.match(html, /<div class="partners wrap"[^>]*><p>OUR DESIGN PARTNERS<\/p>/);
-  assert.match(html, /<img src="assets\/partners\/dexcare\.webp" alt="DexCare"/);
+  assert.match(html, /<a href="https:\/\/dexcare\.com\/" target="_blank" rel="noopener"><img src="assets\/partners\/dexcare\.webp" alt="DexCare"/);
   assert.ok(fs.statSync('assets/partners/dexcare.webp').size > 0);
 });
